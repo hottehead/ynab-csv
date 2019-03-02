@@ -65,7 +65,10 @@ window.DataObject = class DataObject {
                 break;
               case "Amount":
                 if (cell && cell.length > 0) {
-                  tmp_row[col] = accounting.parse(cell);
+                    tmp_row[col] = accounting.parse(cell);
+                    if(!cell.includes('.')){
+                      tmp_row[col] /= 100;
+                    }
                 } else {
                   tmp_row[col] = cell;
                 }
